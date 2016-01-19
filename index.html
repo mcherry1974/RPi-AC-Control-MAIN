@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Cherry AC Controls</h2>
+
+<button type="button" onclick="loadDoc()" style="height:100px; width:100px">TOGGLE POWER</button>
+
+<p id="text_output"></p>
+
+<h2>Set Temp</h2>
+<select id="Temperature" onchange="myFunction()">
+  <option value="65">65
+  <option value="66">66
+  <option value="67">67
+  <option value="68">68
+  <option value="69">69
+  <option value="70">70
+  <option value="71">71
+  <option value="72">72
+  <option value="73">73
+  <option value="74">74
+</select>
+
+<script>
+function loadDoc(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function(){
+    if(xhttp.readyState == 4 && xhttp.status == 200){
+      document.getElementById("text_output").innerHTML = xhttp.responseText;
+    }
+  }
+  xhttp.open("GET", "action.php", true);
+  xhttp.send();
+}
+
+function myFunction(){
+  var x =  document.getElementById("Temperature").value; 
+  document.getElementById("temp_output").innerHTML = x;
+  
+}
+</script>
+
+</body>
+</html>
